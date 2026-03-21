@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+:root {
+  --bg-deep: #0c0c0c;
+  --bg-surface: #141414;
+  --bg-card: #1c1c1c;
+  --bg-card-hover: #242424;
+  --border-subtle: #2a2a2a;
+  --border-active: #3a3a3a;
+  --text-primary: #e0e0e0;
+  --text-secondary: #737373;
+  --text-ghost: #404040;
+  --accent: #a0a0a0;
+  --accent-muted: #a0a0a01a;
+  --warning: #a0a0a0;
+  --warning-muted: #a0a0a01a;
+  --complete: #a0a0a0;
+  --complete-muted: #a0a0a01a;
+  --priority-urgent: #ef4444;
+  --priority-high: #f59e0b;
+  --priority-medium: #737373;
+  --priority-low: #525252;
+  --priority-none: #404040;
+  --accent-amber: #f59e0b;
+  --accent-cyan: #06b6d4;
+  --accent-blue: #3b82f6;
+  --accent-pink: #ec4899;
+  --accent-green: #22c55e;
+  --accent-red: #ef4444;
+  --accent-purple: #a855f7;
+  --accent-white: #e0e0e0;
+}
+
+@theme inline {
+  --color-bg-deep: var(--bg-deep);
+  --color-bg-surface: var(--bg-surface);
+  --color-bg-card: var(--bg-card);
+  --color-bg-card-hover: var(--bg-card-hover);
+  --color-border-subtle: var(--border-subtle);
+  --color-border-active: var(--border-active);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-ghost: var(--text-ghost);
+  --color-accent: var(--accent);
+  --color-accent-muted: var(--accent-muted);
+  --color-warning: var(--warning);
+  --color-warning-muted: var(--warning-muted);
+  --color-complete: var(--complete);
+  --color-complete-muted: var(--complete-muted);
+  --color-priority-urgent: var(--priority-urgent);
+  --color-priority-high: var(--priority-high);
+  --color-priority-medium: var(--priority-medium);
+  --color-priority-low: var(--priority-low);
+  --color-priority-none: var(--priority-none);
+  --font-display: var(--font-space-mono);
+  --font-body: var(--font-ibm-plex-sans);
+  --font-editor: var(--font-ibm-plex-mono);
+}
+
+body {
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+/* Noise texture overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* Scrollbar styling */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-subtle) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-active);
+}
+
+/* Pulsing status dot */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.status-dot {
+  animation: pulse-dot 3s ease-in-out infinite;
+}
+
+/* Placeholder styling */
+::placeholder {
+  color: var(--text-ghost);
+}
+
+/* Selection */
+::selection {
+  background: var(--accent);
+  color: var(--bg-deep);
+}
+
