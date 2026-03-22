@@ -14,6 +14,8 @@ import NotesPanel from "@/components/notes/NotesPanel";
 import CalendarView from "@/components/calendar/CalendarView";
 import UsageView from "@/components/usage/UsageView";
 import AgentsView from "@/components/agents/AgentsView";
+import ContentView from "@/components/content/ContentView";
+import DocsView from "@/components/docs/DocsView";
 
 function TasksView() {
   return (
@@ -57,6 +59,8 @@ const tabViews: Record<string, () => React.ReactElement> = {
   calendar: CalendarView,
   usage: UsageView,
   agents: AgentsView,
+  content: () => <ContentView />,
+  docs: () => <DocsView />,
 };
 
 export default function Home() {
