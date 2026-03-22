@@ -7,7 +7,6 @@ import {
   Bot,
   Calendar,
   BarChart3,
-  Music,
 } from "lucide-react";
 
 const tabs = [
@@ -16,7 +15,6 @@ const tabs = [
   { id: "agents", label: "Agents", icon: Bot },
   { id: "calendar", label: "Calendar", icon: Calendar },
   { id: "usage", label: "Usage", icon: BarChart3 },
-  { id: "music", label: "Music", icon: Music },
 ];
 
 export default function MobileBottomBar() {
