@@ -12,8 +12,6 @@ import {
   Brain,
   BarChart3,
   BookOpen,
-  UserCircle,
-  Factory,
 } from "lucide-react";
 
 const navItems = [
@@ -27,7 +25,6 @@ const navItems = [
   { id: "memory", label: "Memory", icon: Brain },
   { id: "usage", label: "Usage", icon: BarChart3 },
   { id: "docs", label: "Docs", icon: BookOpen },
-  { id: "people", label: "People", icon: UserCircle },
 ];
 
 export default function Sidebar() {
@@ -66,19 +63,6 @@ export default function Sidebar() {
         })}
       </nav>
 
-      <div className="px-2 pb-3 border-t border-border-subtle pt-3">
-        <button
-          onClick={() => dispatch({ type: "SET_TAB", payload: { tab: "factory" } })}
-          className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-all duration-150 ${
-            activeTab === "factory"
-              ? "bg-white/5 text-text-primary border-l-2 border-purple-400"
-              : "text-text-secondary hover:bg-white/[0.03] hover:text-text-primary border-l-2 border-transparent"
-          }`}
-        >
-          <Factory size={16} className={activeTab === "factory" ? "text-purple-400" : "text-text-ghost"} />
-          <span className="font-display text-[11px] font-bold tracking-[0.08em] uppercase">Factory</span>
-        </button>
-      </div>
     </aside>
   );
 }
