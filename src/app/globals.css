@@ -1,34 +1,35 @@
 @import "tailwindcss";
 
 :root {
-  --bg-deep: #0c0c0c;
-  --bg-surface: #141414;
-  --bg-card: #1c1c1c;
-  --bg-card-hover: #242424;
-  --border-subtle: #2a2a2a;
-  --border-active: #3a3a3a;
-  --text-primary: #e0e0e0;
-  --text-secondary: #737373;
-  --text-ghost: #404040;
-  --accent: #a0a0a0;
-  --accent-muted: #a0a0a01a;
-  --warning: #a0a0a0;
-  --warning-muted: #a0a0a01a;
-  --complete: #a0a0a0;
-  --complete-muted: #a0a0a01a;
-  --priority-urgent: #ef4444;
-  --priority-high: #f59e0b;
-  --priority-medium: #737373;
-  --priority-low: #525252;
-  --priority-none: #404040;
-  --accent-amber: #f59e0b;
-  --accent-cyan: #06b6d4;
-  --accent-blue: #3b82f6;
-  --accent-pink: #ec4899;
-  --accent-green: #22c55e;
-  --accent-red: #ef4444;
-  --accent-purple: #a855f7;
-  --accent-white: #e0e0e0;
+  --bg-deep: #0A0A0F;
+  --bg-surface: #12121A;
+  --bg-card: #1A1A25;
+  --bg-card-hover: #22222F;
+  --border-subtle: #2A2A3A;
+  --border-active: #3A3A4F;
+  --text-primary: #E8E8F0;
+  --text-secondary: #8888A0;
+  --text-ghost: #4A4A60;
+  --accent: #E8F630;
+  --accent-muted: #E8F6301a;
+  --warning: #E8F630;
+  --warning-muted: #E8F6301a;
+  --complete: #39FF14;
+  --complete-muted: #39FF141a;
+  --priority-urgent: #FF2E97;
+  --priority-high: #E8F630;
+  --priority-medium: #00F0FF;
+  --priority-low: #BF5FFF;
+  --priority-none: #4A4A60;
+  --accent-yellow: #E8F630;
+  --accent-cyan: #00F0FF;
+  --accent-pink: #FF2E97;
+  --accent-green: #39FF14;
+  --accent-purple: #BF5FFF;
+  --accent-amber: #E8F630;
+  --accent-blue: #00F0FF;
+  --accent-red: #FF2E97;
+  --accent-white: #E8E8F0;
 }
 
 @theme inline {
@@ -52,6 +53,11 @@
   --color-priority-medium: var(--priority-medium);
   --color-priority-low: var(--priority-low);
   --color-priority-none: var(--priority-none);
+  --color-accent-yellow: var(--accent-yellow);
+  --color-accent-cyan: var(--accent-cyan);
+  --color-accent-pink: var(--accent-pink);
+  --color-accent-green: var(--accent-green);
+  --color-accent-purple: var(--accent-purple);
   --font-display: var(--font-space-mono);
   --font-body: var(--font-ibm-plex-sans);
   --font-editor: var(--font-ibm-plex-mono);
@@ -76,10 +82,27 @@ body::before {
   background-size: 256px 256px;
 }
 
+/* Scanline overlay - subtle CRT effect */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 49;
+  pointer-events: none;
+  opacity: 0.03;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.3) 2px,
+    rgba(0, 0, 0, 0.3) 4px
+  );
+}
+
 /* Scrollbar styling */
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--border-subtle) transparent;
+  scrollbar-color: var(--accent-purple) transparent;
 }
 
 ::-webkit-scrollbar {
@@ -91,18 +114,18 @@ body::before {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--border-subtle);
+  background: var(--accent-purple);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--border-active);
+  background: #d07fff;
 }
 
-/* Pulsing status dot */
+/* Pulsing status dot - neon yellow */
 @keyframes pulse-dot {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
+  0%, 100% { opacity: 1; box-shadow: 0 0 6px var(--accent-yellow); }
+  50% { opacity: 0.4; box-shadow: 0 0 2px var(--accent-yellow); }
 }
 
 .status-dot {
@@ -114,9 +137,13 @@ body::before {
   color: var(--text-ghost);
 }
 
-/* Selection */
+/* Selection - cyan */
 ::selection {
-  background: var(--accent);
+  background: var(--accent-cyan);
   color: var(--bg-deep);
 }
 
+/* Subtle glow for headers */
+h1, h2, h3 {
+  text-shadow: 0 0 20px rgba(232, 246, 48, 0.06);
+}

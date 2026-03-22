@@ -5,10 +5,10 @@ import { mockActivities } from "@/data/mockData";
 import { ActivitySeverity } from "@/types";
 
 const severityDot: Record<ActivitySeverity, string> = {
-  info: "bg-zinc-400",
-  success: "bg-green-400",
-  warning: "bg-amber-400",
-  error: "bg-red-400",
+  info: "bg-[#00F0FF]",
+  success: "bg-[#39FF14]",
+  warning: "bg-[#E8F630]",
+  error: "bg-[#FF2E97]",
 };
 
 function formatTime(iso: string): string {
@@ -32,7 +32,7 @@ export default function ActivityFeed() {
     <div className="flex flex-col h-full">
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-2">
-          <div className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+          <div className="w-1.5 h-1.5 rounded-full bg-[#E8F630] animate-pulse" />
           <h2 className="font-display text-[11px] font-bold tracking-[0.15em] uppercase text-text-secondary">
             Live Activity Feed
           </h2>

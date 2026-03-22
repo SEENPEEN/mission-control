@@ -28,7 +28,7 @@ export default function UsageView() {
         ].map((item) => (
           <div
             key={item.label}
-            className="bg-bg-surface border border-border-subtle rounded-lg p-4"
+            className="bg-bg-surface border border-border-subtle rounded-lg p-4 hover:border-[#00F0FF]/30 hover:shadow-[0_0_15px_rgba(0,240,255,0.06)] transition-all"
           >
             <p className="font-display text-[10px] font-bold tracking-[0.12em] uppercase text-text-ghost">
               {item.label}
@@ -41,7 +41,7 @@ export default function UsageView() {
       </div>
 
       {/* Per-agent cost bars */}
-      <PanelShell label="Per-Agent Cost" accentColor="#3b82f6" count={agentCosts.length}>
+      <PanelShell label="Per-Agent Cost" accentColor="#00F0FF" count={agentCosts.length}>
         <div className="space-y-3">
           {agentCosts.map((agent) => {
             const maxCost = Math.max(...agentCosts.map((a) => a.costPerDay), 1);
@@ -82,7 +82,7 @@ export default function UsageView() {
       </PanelShell>
 
       {/* Monthly budget */}
-      <PanelShell label="Monthly Budget" accentColor="#22c55e">
+      <PanelShell label="Monthly Budget" accentColor="#39FF14">
         <div className="space-y-3">
           <div className="flex items-center justify-between">
             <span className="text-xs text-text-secondary">
@@ -99,10 +99,10 @@ export default function UsageView() {
                 width: monthSpentPercent + "%",
                 backgroundColor:
                   monthSpentPercent > 90
-                    ? "#ef4444"
+                    ? "#FF2E97"
                     : monthSpentPercent > 70
-                    ? "#f59e0b"
-                    : "#22c55e",
+                    ? "#E8F630"
+                    : "#39FF14",
               }}
             />
           </div>
@@ -114,7 +114,7 @@ export default function UsageView() {
       </PanelShell>
 
       {/* Budget breakdown */}
-      <PanelShell label="Budget Breakdown" accentColor="#a855f7">
+      <PanelShell label="Budget Breakdown" accentColor="#BF5FFF">
         <div className="space-y-2.5">
           {budgetCategories.map((cat) => {
             const pct = ((cat.amount / totalCategorySpend) * 100).toFixed(0);

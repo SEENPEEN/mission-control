@@ -18,13 +18,13 @@ export default function AgentCard({ agent }: { agent: Agent }) {
     <div
       className="relative group bg-bg-card rounded-2xl border border-border-subtle p-4 transition-all duration-200 hover:-translate-y-0.5 cursor-pointer"
       style={{
-        boxShadow: "0 0 0 1px " + agent.accentColor + "15, 0 0 20px " + agent.accentColor + "08",
-        borderColor: agent.accentColor + "25",
+        boxShadow: "0 0 0 1px " + agent.accentColor + "20, 0 0 20px " + agent.accentColor + "10",
+        borderColor: agent.accentColor + "30",
       }}
     >
       <div
         className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none"
-        style={{ boxShadow: "0 0 30px " + agent.accentColor + "15, 0 0 0 1px " + agent.accentColor + "30" }}
+        style={{ boxShadow: "0 0 40px " + agent.accentColor + "25, 0 0 0 1px " + agent.accentColor + "45" }}
       />
       <div className="relative z-10">
         <div className="flex items-start justify-between mb-3">

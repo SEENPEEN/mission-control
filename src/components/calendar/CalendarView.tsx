@@ -185,7 +185,7 @@ export default function CalendarView() {
       onClick={() => setActiveView(view)}
       className={`px-3 py-1 text-[11px] font-display uppercase tracking-[0.1em] rounded-full transition-colors ${
         activeView === view
-          ? "bg-bg-card border border-border-subtle text-text-primary"
+          ? "bg-[#E8F630] text-[#0A0A0F] border border-[#E8F630]"
           : "text-text-ghost hover:text-text-secondary"
       }`}
     >
@@ -230,7 +230,7 @@ export default function CalendarView() {
       {activeView === "week" && (
         <div className="bg-bg-surface border border-border-subtle rounded-lg px-4 py-3">
           <div className="flex items-center gap-2 mb-2">
-            <Sparkles size={12} className="text-amber-400" />
+            <Sparkles size={12} className="text-[#E8F630]" />
             <span className="font-display text-[11px] font-bold tracking-[0.12em] uppercase text-text-secondary">
               Always Running
             </span>
@@ -289,25 +289,25 @@ export default function CalendarView() {
                   <div
                     key={i}
                     className={`flex flex-col border-r border-border-subtle/50 last:border-r-0 ${
-                      isToday ? "bg-amber-400/[0.03]" : ""
+                      isToday ? "bg-[#E8F630]/[0.03]" : ""
                     }`}
                   >
                     {/* Column header */}
                     <div
                       className={`text-center py-2.5 border-b border-border-subtle/50 ${
-                        isToday ? "bg-amber-400/[0.08]" : ""
+                        isToday ? "bg-[#E8F630]/[0.08]" : ""
                       }`}
                     >
                       <div
                         className={`font-display text-[10px] tracking-[0.15em] uppercase ${
-                          isToday ? "text-amber-400" : "text-text-ghost"
+                          isToday ? "text-[#E8F630]" : "text-text-ghost"
                         }`}
                       >
                         {DAY_NAMES_SHORT[i]}
                       </div>
                       <div
                         className={`text-sm tabular-nums font-medium mt-0.5 ${
-                          isToday ? "text-amber-400" : "text-text-secondary"
+                          isToday ? "text-[#E8F630]" : "text-text-secondary"
                         }`}
                       >
                         {day.getDate()}
@@ -366,7 +366,7 @@ export default function CalendarView() {
                   </div>
                   <div
                     className={`text-2xl tabular-nums font-bold mt-0.5 ${
-                      isToday ? "text-amber-400" : "text-text-primary"
+                      isToday ? "text-[#E8F630]" : "text-text-primary"
                     }`}
                   >
                     {selectedDate.getDate()}
@@ -510,13 +510,13 @@ export default function CalendarView() {
                         setActiveView("day");
                       }}
                       className={`relative flex flex-col border-b border-r border-border-subtle/50 h-16 md:h-24 p-1.5 md:p-2 text-left transition-all duration-150 hover:bg-bg-card-hover ${
-                        isToday ? "ring-1 ring-inset ring-amber-400/40" : ""
+                        isToday ? "ring-1 ring-inset ring-[#E8F630]/40" : ""
                       }`}
                     >
                       <span
                         className={`text-xs tabular-nums leading-none ${
                           isToday
-                            ? "text-amber-400 font-bold"
+                            ? "text-[#E8F630] font-bold"
                             : "text-text-secondary"
                         }`}
                       >

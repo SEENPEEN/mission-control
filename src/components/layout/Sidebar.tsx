@@ -32,9 +32,9 @@ export default function Sidebar() {
   const activeTab = state.activeTab || "tasks";
 
   return (
-    <aside className="hidden md:flex w-[220px] h-full bg-bg-surface border-r border-border-subtle flex-col shrink-0">
+    <aside className="hidden md:flex w-[220px] h-full bg-[#0E0E16] border-r border-border-subtle flex-col shrink-0">
       <div className="flex items-center gap-2.5 px-5 h-14 border-b border-border-subtle">
-        <div className="status-dot w-2 h-2 rounded-full bg-green-400" />
+        <div className="status-dot w-2 h-2 rounded-full bg-[#E8F630]" />
         <h1 className="font-display text-sm font-bold tracking-[0.12em] uppercase text-text-primary">
           Mission Control
         </h1>
@@ -50,11 +50,12 @@ export default function Sidebar() {
               onClick={() => dispatch({ type: "SET_TAB", payload: { tab: item.id } })}
               className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-all duration-150 ${
                 isActive
-                  ? "bg-white/5 text-text-primary border-l-2 border-amber-400"
-                  : "text-text-secondary hover:bg-white/[0.03] hover:text-text-primary border-l-2 border-transparent"
+                  ? "bg-[#E8F630]/[0.07] text-[#E8F630] border-l-2 border-[#E8F630]"
+                  : "text-text-secondary hover:bg-[#00F0FF]/[0.04] hover:text-text-primary border-l-2 border-transparent"
               }`}
+              style={isActive ? { boxShadow: "inset 0 0 20px rgba(232, 246, 48, 0.04)" } : undefined}
             >
-              <Icon size={16} className={isActive ? "text-amber-400" : "text-text-ghost"} />
+              <Icon size={16} className={isActive ? "text-[#E8F630]" : "text-text-ghost"} />
               <span className="font-display text-[11px] font-bold tracking-[0.08em] uppercase">
                 {item.label}
               </span>

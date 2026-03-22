@@ -20,11 +20,11 @@ const statusConfig: Record<
   ContentStatus,
   { label: string; color: string; icon: typeof Lightbulb }
 > = {
-  idea: { label: "Ideas", color: "#a855f7", icon: Lightbulb },
-  draft: { label: "Drafts", color: "#3b82f6", icon: PenLine },
-  review: { label: "In Review", color: "#f59e0b", icon: FileText },
-  scheduled: { label: "Scheduled", color: "#06b6d4", icon: CalendarCheck },
-  published: { label: "Published", color: "#22c55e", icon: Globe },
+  idea: { label: "Ideas", color: "#BF5FFF", icon: Lightbulb },
+  draft: { label: "Drafts", color: "#00F0FF", icon: PenLine },
+  review: { label: "In Review", color: "#E8F630", icon: FileText },
+  scheduled: { label: "Scheduled", color: "#00F0FF", icon: CalendarCheck },
+  published: { label: "Published", color: "#39FF14", icon: Globe },
 };
 
 const typeIcons: Record<ContentType, typeof FileText> = {

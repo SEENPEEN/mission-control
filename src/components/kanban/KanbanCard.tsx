@@ -30,12 +30,12 @@ const priorityConfig: Record<Priority, { color: string; label: string }> = {
 };
 
 const agentColors: Record<string, string> = {
-  Steven: "#e0e0e0",
-  Alfred: "#f59e0b",
-  Alfred2: "#3b82f6",
-  SLIM: "#06b6d4",
-  Kodex: "#22c55e",
-  "Kimi K": "#ec4899",
+  Steven: "#E8E8F0",
+  Alfred: "#E8F630",
+  Alfred2: "#00F0FF",
+  SLIM: "#00F0FF",
+  Kodex: "#39FF14",
+  "Kimi K": "#FF2E97",
 };
 
 const priorities: Priority[] = ["urgent", "high", "medium", "low", "none"];

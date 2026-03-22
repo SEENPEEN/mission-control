@@ -39,7 +39,7 @@ function TasksView() {
         </span>
         <span className="text-text-ghost">·</span>
         <span className="font-display text-sm text-text-primary tracking-wide">
-          <span className="text-amber-400">{stats.inProgress}</span> In progress
+          <span className="text-[#E8F630]">{stats.inProgress}</span> In progress
         </span>
         <span className="text-text-ghost">·</span>
         <span className="font-display text-sm text-text-primary tracking-wide">

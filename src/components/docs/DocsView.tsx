@@ -130,7 +130,7 @@ export default function DocsView() {
                         <BookOpen
                           size={12}
                           className={
-                            isActive ? "text-amber-400" : "text-text-ghost"
+                            isActive ? "text-[#E8F630]" : "text-text-ghost"
                           }
                         />
                         <span className="truncate flex-1">{doc.title}</span>

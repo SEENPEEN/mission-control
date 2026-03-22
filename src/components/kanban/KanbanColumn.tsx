@@ -40,12 +40,12 @@ export default function KanbanColumn({
   return (
     <div
       className={`bg-bg-surface border rounded-lg flex flex-col overflow-hidden transition-colors duration-150 ${
-        isOver ? "border-border-active" : "border-border-subtle"
+        isOver ? "border-[#00F0FF]/50 shadow-[0_0_15px_rgba(0,240,255,0.1)]" : "border-border-subtle"
       }`}
     >
       {/* Column header */}
       <div className="flex items-center gap-2 px-3 py-2.5 border-b border-border-subtle">
-        <div className="w-1.5 h-1.5 rounded-full bg-text-ghost" />
+        <div className="w-1.5 h-1.5 rounded-full bg-[#BF5FFF]" />
         <span className="font-display text-[11px] font-bold tracking-[0.1em] uppercase text-text-secondary">
           {config.label}
         </span>
@@ -62,8 +62,8 @@ export default function KanbanColumn({
         >
           <div className="flex flex-col gap-2">
             {cards.length === 0 ? (
-              <div className="border border-dashed border-border-subtle rounded-md px-4 py-8 text-center">
-                <p className="text-text-ghost text-xs font-display tracking-wide">
+              <div className="border border-dashed border-[#00F0FF]/30 rounded-md px-4 py-8 text-center">
+                <p className="text-[#00F0FF]/50 text-xs font-display tracking-wide">
                   DROP HERE
                 </p>
               </div>

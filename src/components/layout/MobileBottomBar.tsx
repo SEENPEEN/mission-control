@@ -32,7 +32,7 @@ export default function MobileBottomBar() {
               key={tab.id}
               onClick={() => dispatch({ type: "SET_TAB", payload: { tab: tab.id } })}
               className={`flex flex-col items-center justify-center gap-0.5 flex-1 py-1 transition-colors duration-150 ${
-                isActive ? "text-amber-400" : "text-text-ghost"
+                isActive ? "text-[#E8F630]" : "text-text-ghost"
               }`}
             >
               <Icon size={20} />

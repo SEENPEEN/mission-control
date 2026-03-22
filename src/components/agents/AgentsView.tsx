@@ -28,16 +28,16 @@ function getCost(name: string): string {
 
 // Chain of command data
 const chain = [
-  { name: "Steven", role: "Commander", color: "#e0e0e0" },
-  { name: "Alfred", role: "Lead", color: "#f59e0b" },
-  { name: "Alfred2", role: "2nd", color: "#3b82f6" },
+  { name: "Steven", role: "Commander", color: "#E8E8F0" },
+  { name: "Alfred", role: "Lead", color: "#E8F630" },
+  { name: "Alfred2", role: "2nd", color: "#00F0FF" },
 ];
 
 const subordinates = [
-  { name: "AlfredSLIM", color: "#06b6d4" },
-  { name: "Kodex", color: "#22c55e" },
-  { name: "Kimi", color: "#ec4899" },
-  { name: "CronjobLewis", color: "#a855f7" },
+  { name: "AlfredSLIM", color: "#00F0FF" },
+  { name: "Kodex", color: "#39FF14" },
+  { name: "Kimi", color: "#FF2E97" },
+  { name: "CronjobLewis", color: "#BF5FFF" },
 ];
 
 function ExpandedAgentCard({ agent }: { agent: Agent }) {
@@ -87,7 +87,7 @@ export default function AgentsView() {
   return (
     <div className="flex flex-col gap-4 h-full overflow-y-auto">
       {/* Chain of Command */}
-      <PanelShell label="Chain of Command" accentColor="#f59e0b">
+      <PanelShell label="Chain of Command" accentColor="#E8F630">
         <div className="flex flex-col md:flex-row items-center gap-2 md:gap-1 py-2 overflow-x-auto">
           {/* Main chain */}
           {chain.map((node, i) => (

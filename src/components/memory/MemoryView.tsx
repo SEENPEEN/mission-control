@@ -16,7 +16,7 @@ export default function MemoryView() {
       {/* ── Left Panel: File Tree ── */}
       <div className="hidden md:flex w-64 shrink-0 flex-col bg-bg-surface border border-border-subtle rounded-lg overflow-hidden">
         <div className="flex items-center gap-2 px-3 py-2.5 border-b border-border-subtle">
-          <FolderOpen size={14} className="text-amber-400" />
+          <FolderOpen size={14} className="text-[#E8F630]" />
           <span className="font-display text-[11px] font-bold tracking-[0.1em] uppercase text-text-secondary">
             Memory Files
           </span>
@@ -43,13 +43,13 @@ export default function MemoryView() {
                       onClick={() => setActiveFileId(file.id)}
                       className={`w-full flex items-center gap-2.5 px-3 py-1.5 text-left transition-all duration-150 ${
                         isActive
-                          ? "bg-white/5 border-l-2 border-amber-400 text-text-primary"
+                          ? "bg-[#E8F630]/[0.07] border-l-2 border-[#E8F630] text-text-primary"
                           : "border-l-2 border-transparent text-text-secondary hover:bg-white/[0.03] hover:text-text-primary"
                       }`}
                     >
                       <FileText
                         size={13}
-                        className={isActive ? "text-amber-400 shrink-0" : "text-text-ghost shrink-0"}
+                        className={isActive ? "text-[#E8F630] shrink-0" : "text-text-ghost shrink-0"}
                       />
                       <span className="font-display text-[11px] tracking-wide truncate">
                         {file.name}
@@ -86,7 +86,7 @@ export default function MemoryView() {
           ))}
         </select>
         <div className="flex-1 min-h-0">
-          <PanelShell label={activeFile.name} accentColor="#f59e0b" className="h-full">
+          <PanelShell label={activeFile.name} accentColor="#E8F630" className="h-full">
             <pre className="text-[12px] leading-relaxed text-text-secondary font-mono whitespace-pre-wrap break-words">
               {activeFile.content}
             </pre>
@@ -96,7 +96,7 @@ export default function MemoryView() {
 
       {/* ── Right Panel: File Content ── */}
       <div className="hidden md:flex flex-1 min-w-0 min-h-0">
-        <PanelShell label={activeFile.name} accentColor="#f59e0b" className="flex-1">
+        <PanelShell label={activeFile.name} accentColor="#E8F630" className="flex-1">
           <pre className="text-[12px] leading-relaxed text-text-secondary font-mono whitespace-pre-wrap break-words">
             {activeFile.content}
           </pre>
