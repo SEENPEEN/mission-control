@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Mono, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import { AppProvider } from "@/context/AppContext";
+import { MusicProvider } from "@/context/MusicContext";
 import "./globals.css";
 
 const spaceMono = Space_Mono({
@@ -37,7 +38,7 @@ export default function RootLayout({
         className={`${spaceMono.variable} ${ibmPlexSans.variable} ${ibmPlexMono.variable} antialiased`}
       >
         <AppProvider>
-          {children}
+          <MusicProvider>{children}</MusicProvider>
         </AppProvider>
       </body>
     </html>
