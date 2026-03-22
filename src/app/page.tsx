@@ -16,6 +16,7 @@ import UsageView from "@/components/usage/UsageView";
 import AgentsView from "@/components/agents/AgentsView";
 import ContentView from "@/components/content/ContentView";
 import DocsView from "@/components/docs/DocsView";
+import MemoryView from "@/components/memory/MemoryView";
 
 function TasksView() {
   return (
@@ -61,6 +62,7 @@ const tabViews: Record<string, () => React.ReactElement> = {
   agents: AgentsView,
   content: () => <ContentView />,
   docs: () => <DocsView />,
+  memory: () => <MemoryView />,
 };
 
 export default function Home() {
