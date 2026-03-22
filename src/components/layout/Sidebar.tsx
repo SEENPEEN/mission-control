@@ -12,6 +12,7 @@ import {
   Brain,
   BarChart3,
   BookOpen,
+  Music,
 } from "lucide-react";
 
 const navItems = [
@@ -24,6 +25,7 @@ const navItems = [
   { id: "projects", label: "Projects", icon: FolderKanban },
   { id: "memory", label: "Memory", icon: Brain },
   { id: "usage", label: "Usage", icon: BarChart3 },
+  { id: "music", label: "Music", icon: Music },
   { id: "docs", label: "Docs", icon: BookOpen },
 ];
 

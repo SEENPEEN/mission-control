@@ -17,6 +17,8 @@ import AgentsView from "@/components/agents/AgentsView";
 import ContentView from "@/components/content/ContentView";
 import DocsView from "@/components/docs/DocsView";
 import MemoryView from "@/components/memory/MemoryView";
+import MusicView from "@/components/music/MusicView";
+import MiniPlayer from "@/components/music/MiniPlayer";
 
 function TasksView() {
   return (
@@ -63,6 +65,7 @@ const tabViews: Record<string, () => React.ReactElement> = {
   content: () => <ContentView />,
   docs: () => <DocsView />,
   memory: () => <MemoryView />,
+  music: () => <MusicView />,
 };
 
 export default function Home() {
@@ -74,6 +77,7 @@ export default function Home() {
     <div className="h-screen flex">
       <Sidebar />
       <div className="flex-1 flex flex-col min-w-0">
+        <MiniPlayer />
         <TopBar />
         <main className="flex-1 p-3 md:p-5 min-h-0 overflow-y-auto pb-20 md:pb-5">
           {ViewComponent ? <ViewComponent /> : <PlaceholderView title={activeTab} />}
