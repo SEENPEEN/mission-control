@@ -18,7 +18,7 @@ import { KanbanStatus, KanbanCard as KanbanCardType } from "@/types";
 import KanbanColumn from "./KanbanColumn";
 import { DragOverlayCard } from "./KanbanCard";
 
-const columns: KanbanStatus[] = ["todo", "in-progress", "complete"];
+const columns: KanbanStatus[] = ["todo", "in-progress", "review", "complete"];
 
 export default function KanbanBoard() {
   const { state, dispatch } = useApp();
@@ -32,6 +32,7 @@ export default function KanbanBoard() {
     const map: Record<KanbanStatus, KanbanCardType[]> = {
       todo: [],
       "in-progress": [],
+      review: [],
       complete: [],
     };
     for (const card of state.cards) {
@@ -122,7 +123,7 @@ export default function KanbanBoard() {
       onDragOver={handleDragOver}
       onDragEnd={handleDragEnd}
     >
-      <div className="grid grid-cols-3 gap-3 h-full">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 h-full">
         {columns.map((status) => (
           <KanbanColumn
             key={status}

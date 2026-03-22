@@ -1,12 +1,11 @@
 "use client";
 
-import React from "react";
+import React, { useMemo } from "react";
 
 import { useApp } from "@/context/AppContext";
 import Sidebar from "@/components/layout/Sidebar";
 import TopBar from "@/components/layout/TopBar";
 import MobileBottomBar from "@/components/layout/MobileBottomBar";
-import AgentGrid from "@/components/agents/AgentGrid";
 import ActivityFeed from "@/components/activity/ActivityFeed";
 import KanbanBoard from "@/components/kanban/KanbanBoard";
 import TodoPanel from "@/components/todos/TodoPanel";
@@ -18,15 +17,72 @@ import ContentView from "@/components/content/ContentView";
 import DocsView from "@/components/docs/DocsView";
 import MemoryView from "@/components/memory/MemoryView";
 
-
 function TasksView() {
+  const { state } = useApp();
+  const stats = useMemo(() => {
+    const total = state.cards.length;
+    const inProgress = state.cards.filter((c) => c.status === "in-progress").length;
+    const complete = state.cards.filter((c) => c.status === "complete").length;
+    const now = new Date();
+    const weekAgo = new Date(now.getTime() - 7 * 86400000);
+    const thisWeek = state.cards.filter((c) => new Date(c.createdAt) >= weekAgo).length;
+    const completion = total > 0 ? Math.round((complete / total) * 100) : 0;
+    return { thisWeek, inProgress, total, completion };
+  }, [state.cards]);
+
   return (
-    <div className="flex flex-col h-full gap-4">
-      <div className="shrink-0">
-        <AgentGrid />
+    <div className="flex flex-col h-full gap-3">
+      {/* Stats bar */}
+      <div className="shrink-0 flex items-center gap-4 flex-wrap">
+        <span className="font-display text-sm text-text-primary tracking-wide">
+          <span className="text-text-secondary">{stats.thisWeek}</span> This week
+        </span>
+        <span className="text-text-ghost">·</span>
+        <span className="font-display text-sm text-text-primary tracking-wide">
+          <span className="text-amber-400">{stats.inProgress}</span> In progress
+        </span>
+        <span className="text-text-ghost">·</span>
+        <span className="font-display text-sm text-text-primary tracking-wide">
+          <span className="text-text-secondary">{stats.total}</span> Total
+        </span>
+        <span className="text-text-ghost">·</span>
+        <span className="font-display text-sm text-emerald-400 tracking-wide">
+          {stats.completion}% Completion
+        </span>
       </div>
-      <div className="flex-1 min-h-0">
-        <ActivityFeed />
+
+      {/* Action row */}
+      <div className="shrink-0 flex items-center gap-2 flex-wrap">
+        <button className="bg-emerald-500 text-white font-display text-xs tracking-wide rounded-lg px-4 py-1.5 hover:bg-emerald-400 transition-colors">
+          + New task
+        </button>
+        <div className="flex items-center gap-1 ml-2">
+          {["Steven", "Alfred", "All"].map((agent) => (
+            <button
+              key={agent}
+              className={`px-3 py-1 rounded-full text-xs font-display tracking-wide transition-colors border ${
+                agent === "All"
+                  ? "border-border-active bg-white/5 text-text-primary"
+                  : "border-border-subtle text-text-secondary hover:border-border-active hover:text-text-primary"
+              }`}
+            >
+              {agent}
+            </button>
+          ))}
+        </div>
+        <button className="ml-auto px-3 py-1 rounded-full text-xs font-display tracking-wide border border-border-subtle text-text-secondary hover:border-border-active hover:text-text-primary transition-colors">
+          All projects ▾
+        </button>
+      </div>
+
+      {/* Main area: Kanban + Activity */}
+      <div className="flex-1 min-h-0 flex gap-4">
+        <div className="flex-1 min-w-0">
+          <KanbanBoard />
+        </div>
+        <div className="w-[340px] hidden lg:flex flex-col min-h-0">
+          <ActivityFeed />
+        </div>
       </div>
     </div>
   );

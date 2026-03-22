@@ -11,9 +11,10 @@ import { useApp } from "@/context/AppContext";
 import KanbanCard from "./KanbanCard";
 
 const columnConfig: Record<KanbanStatus, { label: string }> = {
-  todo: { label: "TODO" },
-  "in-progress": { label: "IN PROGRESS" },
-  complete: { label: "COMPLETE" },
+  todo: { label: "Backlog" },
+  "in-progress": { label: "In Progress" },
+  review: { label: "Review" },
+  complete: { label: "Complete" },
 };
 
 export default function KanbanColumn({

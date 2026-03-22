@@ -12,13 +12,13 @@ function timeAgo(dateStr: string): string {
   const diff = now - then;
   const mins = Math.floor(diff / 60000);
   if (mins < 1) return "now";
-  if (mins < 60) return `${mins}m`;
+  if (mins < 60) return `${mins}m ago`;
   const hrs = Math.floor(mins / 60);
-  if (hrs < 24) return `${hrs}h`;
+  if (hrs < 24) return `${hrs}h ago`;
   const days = Math.floor(hrs / 24);
-  if (days < 30) return `${days}d`;
+  if (days < 30) return `${days}d ago`;
   const months = Math.floor(days / 30);
-  return `${months}mo`;
+  return `${months}mo ago`;
 }
 
 const priorityConfig: Record<Priority, { color: string; label: string }> = {
@@ -27,6 +27,15 @@ const priorityConfig: Record<Priority, { color: string; label: string }> = {
   medium: { color: "var(--priority-medium)", label: "Med" },
   low: { color: "var(--priority-low)", label: "Low" },
   none: { color: "var(--priority-none)", label: "—" },
+};
+
+const agentColors: Record<string, string> = {
+  Steven: "#e0e0e0",
+  Alfred: "#f59e0b",
+  Alfred2: "#3b82f6",
+  SLIM: "#06b6d4",
+  Kodex: "#22c55e",
+  "Kimi K": "#ec4899",
 };
 
 const priorities: Priority[] = ["urgent", "high", "medium", "low", "none"];
@@ -101,6 +110,7 @@ export default function KanbanCard({ card }: { card: KanbanCardType }) {
 
   const priority = card.priority ?? "none";
   const ago = useMemo(() => timeAgo(card.createdAt), [card.createdAt]);
+  const agentColor = card.assignedTo ? agentColors[card.assignedTo] || "#737373" : null;
 
   return (
     <div
@@ -117,7 +127,15 @@ export default function KanbanCard({ card }: { card: KanbanCardType }) {
         style={{ backgroundColor: priorityConfig[priority].color }}
       />
       <div className="flex items-start justify-between gap-2">
-        <p className="text-sm text-text-primary leading-snug">{card.title}</p>
+        <div className="flex items-center gap-1.5 min-w-0">
+          {agentColor && (
+            <span
+              className="w-2 h-2 rounded-full shrink-0"
+              style={{ backgroundColor: agentColor }}
+            />
+          )}
+          <p className="text-sm text-text-primary leading-snug truncate">{card.title}</p>
+        </div>
         <button
           onClick={(e) => {
             e.stopPropagation();
@@ -133,7 +151,7 @@ export default function KanbanCard({ card }: { card: KanbanCardType }) {
           {card.description}
         </p>
       )}
-      <div className="mt-1.5 flex items-center justify-between">
+      <div className="mt-2 flex items-center justify-between">
         <PrioritySelector
           current={priority}
           onChange={(p) =>
@@ -143,10 +161,24 @@ export default function KanbanCard({ card }: { card: KanbanCardType }) {
             })
           }
         />
-        <span className="text-[10px] font-display text-text-ghost tabular-nums">
+        <span className="text-[11px] font-display text-text-secondary tabular-nums">
           {ago}
         </span>
       </div>
+      {card.assignedTo && (
+        <div className="mt-1.5 flex items-center gap-1.5">
+          <span
+            className="inline-block px-2 py-0.5 rounded text-[9px] font-display tracking-wider uppercase border"
+            style={{
+              color: agentColor || "#737373",
+              borderColor: `${agentColor || "#737373"}30`,
+              backgroundColor: `${agentColor || "#737373"}10`,
+            }}
+          >
+            {card.assignedTo}
+          </span>
+        </div>
+      )}
     </div>
   );
 }

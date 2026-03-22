@@ -1,4 +1,4 @@
-export type KanbanStatus = "todo" | "in-progress" | "complete";
+export type KanbanStatus = "todo" | "in-progress" | "review" | "complete";
 export type Priority = "urgent" | "high" | "medium" | "low" | "none";
 export type AgentStatus = "idle" | "working" | "error" | "offline";
 export type ActivitySeverity = "info" | "success" | "warning" | "error";
