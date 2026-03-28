@@ -123,7 +123,7 @@ export default function KanbanBoard() {
       onDragOver={handleDragOver}
       onDragEnd={handleDragEnd}
     >
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 h-full">
+      <div className="flex md:grid md:grid-cols-4 gap-3 h-full overflow-x-auto snap-x snap-mandatory pb-2 md:pb-0 md:overflow-x-visible">
         {columns.map((status) => (
           <KanbanColumn
             key={status}

@@ -48,19 +48,21 @@ export default function ActivityFeed() {
         {sorted.map((entry) => (
           <div
             key={entry.id}
-            className="flex items-start gap-3 px-3 py-2 rounded-lg hover:bg-bg-card transition-colors group"
+            className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-3 px-2 sm:px-3 py-2 rounded-lg hover:bg-bg-card transition-colors group"
           >
-            <span className="font-editor text-[11px] text-text-ghost tabular-nums whitespace-nowrap pt-0.5">
-              {formatTime(entry.timestamp)}
-            </span>
-            <div className={"w-1.5 h-1.5 rounded-full mt-1.5 shrink-0 " + severityDot[entry.status]} />
-            <span
-              className="font-display text-[11px] font-bold tracking-wide whitespace-nowrap w-24 shrink-0 pt-0.5"
-              style={{ color: entry.agentColor }}
-            >
-              {entry.agentName}
-            </span>
-            <span className="text-xs text-text-secondary leading-relaxed">
+            <div className="flex items-center gap-2 shrink-0">
+              <span className="font-editor text-[11px] text-text-ghost tabular-nums whitespace-nowrap">
+                {formatTime(entry.timestamp)}
+              </span>
+              <div className={"w-1.5 h-1.5 rounded-full shrink-0 " + severityDot[entry.status]} />
+              <span
+                className="font-display text-[11px] font-bold tracking-wide whitespace-nowrap"
+                style={{ color: entry.agentColor }}
+              >
+                {entry.agentName}
+              </span>
+            </div>
+            <span className="text-xs text-text-secondary leading-relaxed pl-4 sm:pl-0">
               <span className="text-text-ghost font-display text-[10px] uppercase tracking-wider mr-1.5">
                 {entry.action}
               </span>

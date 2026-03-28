@@ -103,8 +103,31 @@ export default function DocsView() {
 
   return (
     <div className="flex flex-col md:flex-row gap-4 h-full min-h-0">
-      {/* Left panel — nav */}
-      <div className="shrink-0 w-full md:w-56">
+      {/* Mobile: dropdown doc selector */}
+      <div className="md:hidden shrink-0">
+        <select
+          value={selectedId}
+          onChange={(e) => setSelectedId(e.target.value)}
+          className="w-full bg-bg-surface border border-border-subtle rounded-lg px-3 py-2.5 text-text-primary font-display text-xs tracking-wide min-h-[44px]"
+        >
+          {categoryOrder.map((cat) => {
+            const catDocs = docs.filter((d) => d.category === cat);
+            if (catDocs.length === 0) return null;
+            return (
+              <optgroup key={cat} label={categoryLabels[cat]}>
+                {catDocs.map((doc) => (
+                  <option key={doc.id} value={doc.id}>
+                    {doc.title}
+                  </option>
+                ))}
+              </optgroup>
+            );
+          })}
+        </select>
+      </div>
+
+      {/* Desktop: Left panel — nav */}
+      <div className="hidden md:block shrink-0 w-56">
         <PanelShell label="Documentation" count={docs.length} noPadding>
           <div className="py-1">
             {categoryOrder.map((cat) => {

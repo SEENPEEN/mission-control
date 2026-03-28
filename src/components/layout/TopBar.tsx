@@ -26,17 +26,17 @@ export default function TopBar() {
         </kbd>
       </div>
 
-      <div className="ml-auto flex items-center gap-1">
-        <button className="p-2 rounded-lg text-text-ghost hover:text-[#E8F630] hover:bg-[#E8F630]/[0.06] transition-colors hidden md:block" title="Pause all agents">
+      <div className="ml-auto flex items-center gap-0.5 sm:gap-1">
+        <button className="p-2.5 md:p-2 rounded-lg text-text-ghost hover:text-[#E8F630] hover:bg-[#E8F630]/[0.06] transition-colors hidden md:flex items-center justify-center min-w-[44px] min-h-[44px] md:min-w-0 md:min-h-0" title="Pause all agents">
           <Pause size={15} />
         </button>
-        <button className="p-2 rounded-lg text-text-ghost hover:text-[#39FF14] hover:bg-[#39FF14]/[0.06] transition-colors hidden md:block" title="Ping agents">
+        <button className="p-2.5 md:p-2 rounded-lg text-text-ghost hover:text-[#39FF14] hover:bg-[#39FF14]/[0.06] transition-colors hidden md:flex items-center justify-center min-w-[44px] min-h-[44px] md:min-w-0 md:min-h-0" title="Ping agents">
           <Radio size={15} />
         </button>
-        <button className="p-2 rounded-lg text-text-ghost hover:text-[#FF2E97] hover:bg-[#FF2E97]/[0.06] transition-colors" title="Notifications">
+        <button className="p-2.5 md:p-2 rounded-lg text-text-ghost hover:text-[#FF2E97] hover:bg-[#FF2E97]/[0.06] transition-colors flex items-center justify-center min-w-[44px] min-h-[44px] md:min-w-0 md:min-h-0" title="Notifications">
           <Bell size={15} />
         </button>
-        <button className="p-2 rounded-lg text-text-ghost hover:text-[#BF5FFF] hover:bg-[#BF5FFF]/[0.06] transition-colors hidden md:block" title="Settings">
+        <button className="p-2.5 md:p-2 rounded-lg text-text-ghost hover:text-[#BF5FFF] hover:bg-[#BF5FFF]/[0.06] transition-colors hidden md:flex items-center justify-center min-w-[44px] min-h-[44px] md:min-w-0 md:min-h-0" title="Settings">
           <Settings size={15} />
         </button>
       </div>

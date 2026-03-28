@@ -33,34 +33,31 @@ function TasksView() {
   return (
     <div className="flex flex-col h-full gap-3">
       {/* Stats bar */}
-      <div className="shrink-0 flex items-center gap-4 flex-wrap">
-        <span className="font-display text-sm text-text-primary tracking-wide">
+      <div className="shrink-0 grid grid-cols-2 sm:flex sm:items-center gap-2 sm:gap-4 flex-wrap">
+        <span className="font-display text-xs sm:text-sm text-text-primary tracking-wide">
           <span className="text-text-secondary">{stats.thisWeek}</span> This week
         </span>
-        <span className="text-text-ghost">·</span>
-        <span className="font-display text-sm text-text-primary tracking-wide">
+        <span className="font-display text-xs sm:text-sm text-text-primary tracking-wide">
           <span className="text-[#E8F630]">{stats.inProgress}</span> In progress
         </span>
-        <span className="text-text-ghost">·</span>
-        <span className="font-display text-sm text-text-primary tracking-wide">
+        <span className="font-display text-xs sm:text-sm text-text-primary tracking-wide">
           <span className="text-text-secondary">{stats.total}</span> Total
         </span>
-        <span className="text-text-ghost">·</span>
-        <span className="font-display text-sm text-emerald-400 tracking-wide">
+        <span className="font-display text-xs sm:text-sm text-emerald-400 tracking-wide">
           {stats.completion}% Completion
         </span>
       </div>
 
       {/* Action row */}
       <div className="shrink-0 flex items-center gap-2 flex-wrap">
-        <button className="bg-emerald-500 text-white font-display text-xs tracking-wide rounded-lg px-4 py-1.5 hover:bg-emerald-400 transition-colors">
+        <button className="bg-emerald-500 text-white font-display text-xs tracking-wide rounded-lg px-4 py-2 min-h-[44px] hover:bg-emerald-400 transition-colors">
           + New task
         </button>
-        <div className="flex items-center gap-1 ml-2">
+        <div className="flex items-center gap-1 ml-0 sm:ml-2">
           {["Steven", "Alfred", "All"].map((agent) => (
             <button
               key={agent}
-              className={`px-3 py-1 rounded-full text-xs font-display tracking-wide transition-colors border ${
+              className={`px-3 py-2 min-h-[36px] rounded-full text-xs font-display tracking-wide transition-colors border ${
                 agent === "All"
                   ? "border-border-active bg-white/5 text-text-primary"
                   : "border-border-subtle text-text-secondary hover:border-border-active hover:text-text-primary"
@@ -70,7 +67,7 @@ function TasksView() {
             </button>
           ))}
         </div>
-        <button className="ml-auto px-3 py-1 rounded-full text-xs font-display tracking-wide border border-border-subtle text-text-secondary hover:border-border-active hover:text-text-primary transition-colors">
+        <button className="ml-auto px-3 py-2 min-h-[36px] rounded-full text-xs font-display tracking-wide border border-border-subtle text-text-secondary hover:border-border-active hover:text-text-primary transition-colors">
           All projects ▾
         </button>
       </div>
@@ -90,8 +87,10 @@ function TasksView() {
 
 function BoardView() {
   return (
-    <div className="flex flex-col md:grid md:grid-cols-[1fr_360px] gap-4 h-full min-h-0">
-      <KanbanBoard />
+    <div className="flex flex-col gap-4 h-full min-h-0 md:grid md:grid-cols-[1fr_360px]">
+      <div className="min-h-[300px] md:min-h-0">
+        <KanbanBoard />
+      </div>
       <div className="flex flex-col gap-4 min-h-0">
         <TodoPanel />
         <NotesPanel />
@@ -120,7 +119,8 @@ const tabViews: Record<string, () => React.ReactElement> = {
   content: () => <ContentView />,
   docs: () => <DocsView />,
   memory: () => <MemoryView />,
-
+  approvals: () => <PlaceholderView title="Approvals" />,
+  council: () => <PlaceholderView title="Council" />,
 };
 
 export default function Home() {

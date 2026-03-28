@@ -114,34 +114,38 @@ export default function ContentView() {
                   return (
                     <div
                       key={item.id}
-                      className="flex items-center gap-3 px-2 py-2 rounded-md hover:bg-white/[0.03] transition-colors"
+                      className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 px-2 py-2.5 sm:py-2 rounded-md hover:bg-white/[0.03] transition-colors min-h-[44px]"
                     >
-                      <TypeIcon
-                        size={14}
-                        className="text-text-ghost shrink-0"
-                      />
-                      <span className="text-sm text-text-primary flex-1 truncate">
-                        {item.title}
-                      </span>
-                      <span
-                        className="font-display text-[9px] tracking-[0.08em] uppercase px-1.5 py-0.5 rounded"
-                        style={{
-                          color: cfg.color,
-                          backgroundColor: cfg.color + "1a",
-                        }}
-                      >
-                        {item.type}
-                      </span>
-                      <span className="flex items-center gap-1 text-text-secondary text-xs shrink-0">
-                        <User size={10} />
-                        {item.assignedTo}
-                      </span>
-                      {item.dueDate && (
-                        <span className="flex items-center gap-1 text-text-ghost text-[10px] shrink-0 tabular-nums">
-                          <Clock size={10} />
-                          {item.dueDate}
+                      <div className="flex items-center gap-2 min-w-0 flex-1">
+                        <TypeIcon
+                          size={14}
+                          className="text-text-ghost shrink-0"
+                        />
+                        <span className="text-sm text-text-primary truncate">
+                          {item.title}
                         </span>
-                      )}
+                      </div>
+                      <div className="flex items-center gap-2 sm:gap-3 pl-6 sm:pl-0 shrink-0">
+                        <span
+                          className="font-display text-[9px] tracking-[0.08em] uppercase px-1.5 py-0.5 rounded"
+                          style={{
+                            color: cfg.color,
+                            backgroundColor: cfg.color + "1a",
+                          }}
+                        >
+                          {item.type}
+                        </span>
+                        <span className="flex items-center gap-1 text-text-secondary text-xs shrink-0">
+                          <User size={10} />
+                          {item.assignedTo}
+                        </span>
+                        {item.dueDate && (
+                          <span className="flex items-center gap-1 text-text-ghost text-[10px] shrink-0 tabular-nums">
+                            <Clock size={10} />
+                            {item.dueDate}
+                          </span>
+                        )}
+                      </div>
                     </div>
                   );
                 })}

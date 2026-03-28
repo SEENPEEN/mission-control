@@ -141,7 +141,7 @@ export default function KanbanCard({ card }: { card: KanbanCardType }) {
             e.stopPropagation();
             dispatch({ type: "DELETE_CARD", payload: { id: card.id } });
           }}
-          className="opacity-0 group-hover:opacity-100 text-text-ghost hover:text-text-secondary transition-opacity duration-150 text-xs flex-shrink-0 mt-0.5"
+          className="opacity-100 sm:opacity-0 sm:group-hover:opacity-100 text-text-ghost hover:text-text-secondary transition-opacity duration-150 text-xs flex-shrink-0 mt-0.5 p-1 min-w-[32px] min-h-[32px] flex items-center justify-center sm:min-w-0 sm:min-h-0 sm:p-0"
         >
           &times;
         </button>

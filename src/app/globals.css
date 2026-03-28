@@ -67,6 +67,8 @@ body {
   background: var(--bg-deep);
   color: var(--text-primary);
   font-family: var(--font-body), system-ui, sans-serif;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
 }
 
 /* Noise texture overlay */
@@ -130,6 +132,16 @@ body::after {
 
 .status-dot {
   animation: pulse-dot 3s ease-in-out infinite;
+}
+
+/* Slide-up animation for mobile more menu */
+@keyframes slide-up {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.25s ease-out;
 }
 
 /* Placeholder styling */

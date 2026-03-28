@@ -7,10 +7,10 @@ export default function TodoItem({ todo }: { todo: TodoItemType }) {
   const { dispatch } = useApp();
 
   return (
-    <div className="group flex items-center gap-2.5 px-2 py-1.5 rounded-md hover:bg-bg-card transition-colors duration-150">
+    <div className="group flex items-center gap-2.5 px-2 py-2 sm:py-1.5 rounded-md hover:bg-bg-card transition-colors duration-150 min-h-[44px]">
       <button
         onClick={() => dispatch({ type: "TOGGLE_TODO", payload: { id: todo.id } })}
-        className={`w-4 h-4 rounded border flex-shrink-0 flex items-center justify-center transition-all duration-150 ${
+        className={`w-5 h-5 sm:w-4 sm:h-4 rounded border flex-shrink-0 flex items-center justify-center transition-all duration-150 ${
           todo.completed
             ? "bg-text-secondary border-text-secondary"
             : "border-border-active hover:border-text-secondary"
@@ -39,7 +39,7 @@ export default function TodoItem({ todo }: { todo: TodoItemType }) {
       </span>
       <button
         onClick={() => dispatch({ type: "DELETE_TODO", payload: { id: todo.id } })}
-        className="opacity-0 group-hover:opacity-100 text-text-ghost hover:text-text-secondary transition-opacity duration-150 text-xs px-1"
+        className="opacity-100 sm:opacity-0 sm:group-hover:opacity-100 text-text-ghost hover:text-text-secondary transition-opacity duration-150 text-xs px-2 py-1 min-w-[44px] min-h-[44px] flex items-center justify-center sm:min-w-0 sm:min-h-0 sm:p-0 sm:px-1"
       >
         &times;
       </button>

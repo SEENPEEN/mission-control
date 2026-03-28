@@ -39,7 +39,7 @@ export default function KanbanColumn({
 
   return (
     <div
-      className={`bg-bg-surface border rounded-lg flex flex-col overflow-hidden transition-colors duration-150 ${
+      className={`bg-bg-surface border rounded-lg flex flex-col overflow-hidden transition-colors duration-150 min-w-[260px] md:min-w-0 snap-center shrink-0 md:shrink ${
         isOver ? "border-[#00F0FF]/50 shadow-[0_0_15px_rgba(0,240,255,0.1)]" : "border-border-subtle"
       }`}
     >

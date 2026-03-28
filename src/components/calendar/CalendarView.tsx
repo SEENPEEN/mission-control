@@ -196,16 +196,16 @@ export default function CalendarView() {
   return (
     <div className="flex flex-col gap-4 h-full">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
         <div>
-          <h2 className="font-display text-lg font-bold tracking-[0.08em] uppercase text-text-primary">
+          <h2 className="font-display text-base sm:text-lg font-bold tracking-[0.08em] uppercase text-text-primary">
             Scheduled Tasks
           </h2>
           <p className="text-xs text-text-ghost">
             Stevens automated routines
           </p>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 flex-wrap">
           <div className="flex items-center gap-0.5 bg-bg-deep rounded-full p-0.5">
             {viewBtn("week", "Week")}
             {viewBtn("day", "Day")}
@@ -213,21 +213,21 @@ export default function CalendarView() {
           </div>
           <button
             onClick={goToToday}
-            className="px-3 py-1 text-[11px] font-display uppercase tracking-[0.1em] text-text-ghost hover:text-text-primary rounded-full border border-border-subtle hover:border-border-active transition-colors"
+            className="px-3 py-1 min-h-[36px] text-[11px] font-display uppercase tracking-[0.1em] text-text-ghost hover:text-text-primary rounded-full border border-border-subtle hover:border-border-active transition-colors"
           >
             Today
           </button>
           <button
             onClick={goToToday}
-            className="p-1.5 rounded-lg text-text-ghost hover:text-text-primary hover:bg-white/[0.04] transition-colors"
+            className="p-2 min-h-[36px] min-w-[36px] flex items-center justify-center rounded-lg text-text-ghost hover:text-text-primary hover:bg-white/[0.04] transition-colors"
           >
             <RefreshCw size={14} />
           </button>
         </div>
       </div>
 
-      {/* Always Running (week view only) */}
-      {activeView === "week" && (
+      {/* Always Running (week/day view) */}
+      {(activeView === "week" || activeView === "day") && (
         <div className="bg-bg-surface border border-border-subtle rounded-lg px-4 py-3">
           <div className="flex items-center gap-2 mb-2">
             <Sparkles size={12} className="text-[#E8F630]" />
@@ -392,19 +392,21 @@ export default function CalendarView() {
                     {dayEvents.map((event) => (
                       <div
                         key={event.id}
-                        className="flex items-center gap-4 p-4 rounded-lg"
+                        className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 p-3 sm:p-4 rounded-lg"
                         style={{
                           backgroundColor: event.color + "15",
                           borderLeft: `3px solid ${event.color}`,
                         }}
                       >
-                        <div className="text-sm tabular-nums text-text-secondary font-medium w-20 shrink-0">
-                          {event.time}
+                        <div className="flex items-center gap-2 sm:contents">
+                          <div
+                            className="w-2.5 h-2.5 rounded-full shrink-0"
+                            style={{ backgroundColor: event.color }}
+                          />
+                          <div className="text-sm tabular-nums text-text-secondary font-medium shrink-0">
+                            {event.time}
+                          </div>
                         </div>
-                        <div
-                          className="w-2.5 h-2.5 rounded-full shrink-0"
-                          style={{ backgroundColor: event.color }}
-                        />
                         <div className="flex-1 min-w-0">
                           <p className="text-sm text-text-primary font-medium">
                             {event.name}
